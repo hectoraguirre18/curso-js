@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <p><h1>Mi Calculadora</h1></p>
+    <p>Primer valor: <input type="number" id="value1"></p>
+    <p>Segundo valor: <input type="number" id="value2"></p>
+    <p>
+      Operación: <select id="operation">
+        <option value="add">Suma</option>
+        <option value="sub">Resta</option>
+        <option value="mult">Multiplicacion</option>
+      </select>
+    </p>
+    <p>
+      <button onclick="operate()">=</button>
+    </p>
+    <p id="result"></p>
+  </body>
+</html>
