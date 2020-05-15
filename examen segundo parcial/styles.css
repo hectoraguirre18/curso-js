@@ -1,0 +1,45 @@
+:root {
+  --thumbnail-size: 75px;
+}
+
+body {
+  margin: 24px;
+  background-color: black;
+  background-image: url(background.jpg);
+}
+
+.character-list-item {
+  background-color: #00264D;
+  margin: 2px;
+}
+
+.list-group-item-action:hover{
+  background:#02386E;
+}
+
+.list-group {
+  border-radius: 10px;
+}
+
+.thumbnail {
+  -ms-flex: 0 0 95px; flex: 0 0 95px;
+}
+
+.rounded-sm {
+  border-radius: 10px;
+}
+
+.rounded-md {
+  border-radius: 15px;
+}
+
+small {
+  color: #e7e7e7;
+}
+
+h1 {
+  color: #e7e7e7;
+}
+h4 {
+  color: #e7e7e7;
+}
