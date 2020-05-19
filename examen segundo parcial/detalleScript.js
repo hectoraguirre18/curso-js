@@ -37,10 +37,10 @@ const detalle = fetch(url)
     let timeTag = Math.floor(diff) > 1 ? 'days' : 'day';
     if(diff > 30){
         diff /= 30;
-        timeTag = Math.floor(diff) > 1 ? 'months' : 'month';;
+        timeTag = Math.floor(diff) > 1 ? 'months' : 'month';
         if(diff > 12) {
             diff /= 12;
-            timeTag = Math.floor(diff) > 1 ? 'years' : 'year';;
+            timeTag = Math.floor(diff) > 1 ? 'years' : 'year';
         }
     }
     diff = Math.floor(diff);
