@@ -5,8 +5,10 @@ const page = search_params.get('page');
 
 const baseUrl = 'http://gateway.marvel.com/v1/public/characters'
 const ts = '1';
-const apiKey = '37ddbe23c01f96a51f7935d4c8113bef';
-const hash = 'bb79e8bd2b92a9c26d96b1755ea936d2';
+// const apiKey = '37ddbe23c01f96a51f7935d4c8113bef';
+// const hash = 'bb79e8bd2b92a9c26d96b1755ea936d2';
+const apiKey = '0fdacf8613cd347dbae9b7ceccaa1cce';
+const hash = '8bdbe29b51830bc41d117255d20e5564';
 
 const url = `${baseUrl}/${id}?ts=${ts}&apikey=${apiKey}&hash=${hash}`;
 
