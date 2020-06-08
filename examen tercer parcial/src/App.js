@@ -200,65 +200,67 @@ function App() {
                               </div>
                             </div>
                           </div>
-                          <div className="col">
-                            <button className={"btn btn-sm btn-danger mr-2 float-right" + (editingOther ? " disabled" : "")} onClick={() => {if(!editingOther) deleteTodo(item.id)}}>
-                              <Icon.Trash size="18"/>
-                            </button>
-                            {
-                              editingThis
-                                ? <button className="btn btn-sm btn-secondary mr-2 float-right" onClick={cancelEdit}>Cancel</button>
-                                : <button className={"btn btn-sm btn-primary mr-2 float-right" + (editingOther ? " disabled" : "")}
-                                    onClick={() => startEdit(item)}
-                                  >Edit</button>
-                            }
-                          </div>
+                          {
+                            editingOther
+                              ? (
+                                <div className="col">
+                                  <button className="btn btn-sm btn-danger mr-2 float-right disabled" disabled>
+                                    <Icon.Trash size="18"/>
+                                  </button>
+                                  <button className="btn btn-sm btn-primary mr-2 float-right disabled" disabled>Edit</button>
+                                </div>
+                              )
+                              : (
+                                <div className="col">
+                                  <button className="btn btn-sm btn-danger mr-2 float-right" onClick={() => deleteTodo(item.id)}>
+                                    <Icon.Trash size="18"/>
+                                  </button>
+                                  <button className="btn btn-sm btn-primary mr-2 float-right"onClick={() => startEdit(item)}>Edit</button>
+                                </div>
+                              )
+                          }
                         </div>
                       )
                       : (
                         <div className="row">
-                          <div className="col-md-8">
-                            <div className="row align-items-center" style={{cursor: "pointer", color: "crimson"}} onClick={() => setEditUrgent(!editUrgent)}>
+                          <div className="col">
+                            <div className="row align-items-center mb-2 mr-0" style={{cursor: "pointer", color: "crimson"}} onClick={() => setEditUrgent(!editUrgent)}>
                               {
                                 editUrgent
                                   ? (<Icon.ExclamationTriangleFill className="ml-2 mr-2" size="16"/>)
                                   : (<Icon.Triangle className="ml-2 mr-2" size="16"/>)
                               }
-                              {editUrgent ? "Urgent!" : "Not urgent"}
+                              {editUrgent ? "Marked as Urgent" : "Not marked as urgent"}
+                              <div className="flex-grow-1"/>
+                              <button className="btn btn-sm btn-success mr-2 float-right" onClick={saveChanges}>Save</button>
+                              <button className="btn btn-sm btn-secondary mr-2 float-right" onClick={cancelEdit}>Cancel</button>
+                              <button className="btn btn-sm btn-danger mr-2 float-right" onClick={() => deleteTodo(item.id)}>
+                                <Icon.Trash size="18"/>
+                              </button>
                             </div>
                             <div className="row align-items-center">
-                              <input type="text"
-                                autoFocus="autofocus"
-                                placeholder="Name"
-                                className="form-inline mr-2"
-                                value={editName}
-                                onChange = {e => setEditName(e.target.value)}
-                              />
+                              <div className="col">
+                                  <label>Name:</label>
+                                  <input type="text"
+                                    autoFocus="autofocus"
+                                    placeholder="Name"
+                                    className="form-control input-sm mr-2"
+                                    value={editName}
+                                    onChange = {e => setEditName(e.target.value)}
+                                  />
+                              </div>
+                              <div className="col">
+                              <label>
+                                Description:
+                              </label>
+                                <input type="text"
+                                  placeholder="Description"
+                                  className="form-control input-sm mr-2"
+                                  value={editDescription}
+                                  onChange = {e => setEditDescription(e.target.value)}
+                                />
+                              </div>
                             </div>
-                            <div className="row align-items-center">
-                              <input type="text"
-                                placeholder="Description"
-                                className="form-inline mr-2"
-                                value={editDescription}
-                                onChange = {e => setEditDescription(e.target.value)}
-                              />
-                            </div>
-                          </div>
-                          <div className="col">
-                            <button className={"btn btn-sm btn-danger mr-2 float-right" + (editingOther ? " disabled" : "")} onClick={() => {if(!editingOther) deleteTodo(item.id)}}>
-                              <Icon.Trash size="18"/>
-                            </button>
-                            {
-                              editingThis
-                                ? <button className="btn btn-sm btn-secondary mr-2 float-right" onClick={cancelEdit}>Cancel</button>
-                                : <button className={"btn btn-sm btn-primary mr-2 float-right" + (editingOther ? " disabled" : "")}
-                                    onClick={() => startEdit(item)}
-                                  >Edit</button>
-                            }
-                            {
-                              editName && editDescription
-                                ? <button className="btn btn-sm btn-success float-right" onClick={saveChanges}>Save</button>
-                                : <button className="btn btn-sm btn-light float-right" onClick={saveChanges} disabled>Save</button>
-                            }
                           </div>
                         </div>
                       )
